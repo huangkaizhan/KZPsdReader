@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13770" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13770"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe" customClass="PsdPackView">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="F9O-sO-HoR">
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+                </customView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="Jda-Cl-1vd">
+                    <rect key="frame" x="140" y="36" width="200" height="200"/>
+                    <subviews>
+                        <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tXM-SV-d4S">
+                            <rect key="frame" x="5" y="125" width="190" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="08j-1j-TrD"/>
+                            </constraints>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="boi-TO-XS9">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="R12-oe-Cxo">
+                            <rect key="frame" x="59" y="82" width="82" height="32"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="5H3-ik-8q7"/>
+                            </constraints>
+                            <buttonCell key="cell" type="push" title="确定" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="q9c-Qk-mWz">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="submitButtonClicked:" target="c22-O7-iKe" id="Ocb-Xa-Oaz"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="tXM-SV-d4S" secondAttribute="trailing" constant="5" id="5l1-BN-dH8"/>
+                        <constraint firstAttribute="trailing" secondItem="R12-oe-Cxo" secondAttribute="trailing" constant="65" id="Bhg-pp-4gz"/>
+                        <constraint firstItem="R12-oe-Cxo" firstAttribute="leading" secondItem="Jda-Cl-1vd" secondAttribute="leading" constant="65" id="QT1-Jw-Jxc"/>
+                        <constraint firstItem="R12-oe-Cxo" firstAttribute="top" secondItem="tXM-SV-d4S" secondAttribute="bottom" constant="15" id="Uzv-EY-tfS"/>
+                        <constraint firstAttribute="height" constant="200" id="XQ6-Kg-iou"/>
+                        <constraint firstItem="tXM-SV-d4S" firstAttribute="top" secondItem="Jda-Cl-1vd" secondAttribute="top" constant="50" id="obF-TD-fAE"/>
+                        <constraint firstAttribute="width" constant="200" id="wHj-NC-uoE"/>
+                        <constraint firstItem="tXM-SV-d4S" firstAttribute="leading" secondItem="Jda-Cl-1vd" secondAttribute="leading" constant="5" id="zOd-DN-Vwo"/>
+                    </constraints>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="F9O-sO-HoR" secondAttribute="trailing" id="7Xv-64-53n"/>
+                <constraint firstItem="Jda-Cl-1vd" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="E0L-F7-ZV4"/>
+                <constraint firstAttribute="bottom" secondItem="F9O-sO-HoR" secondAttribute="bottom" id="Nml-h8-lTy"/>
+                <constraint firstItem="Jda-Cl-1vd" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="h6q-nH-RKL"/>
+                <constraint firstItem="F9O-sO-HoR" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="x1Z-52-dlZ"/>
+                <constraint firstItem="F9O-sO-HoR" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="yKc-hg-l3g"/>
+            </constraints>
+            <connections>
+                <outlet property="backView" destination="F9O-sO-HoR" id="mc4-Lz-1MH"/>
+                <outlet property="contentView" destination="Jda-Cl-1vd" id="2xR-n7-3vF"/>
+                <outlet property="titleTextField" destination="tXM-SV-d4S" id="pkO-U2-3jy"/>
+            </connections>
+        </customView>
+    </objects>
+</document>

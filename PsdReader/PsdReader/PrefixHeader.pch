@@ -1,0 +1,85 @@
+//
+//  PrefixHeader.pch
+//  PsdReader
+//
+//  Created by huangkaizhan on 2017/12/19.
+//  Copyright © 2017年 huangkaizhan. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#pragma mark - 系统头文件
+#import <Cocoa/Cocoa.h>
+#import <AppKit/AppKit.h>
+#import "MJExtension.h"
+#import "PsdControlConfig.h"
+#import "PsdSettingModel.h"
+
+#pragma mark - 辅助宏
+// 空宏，用来标识是psd的json
+#define PSDJSON
+// 空宏，用来标识必须重写
+#define PSDOVERRIDE
+
+#pragma mark - 枚举 
+typedef enum{
+    PsdControlTypeNone,             // 不用创建
+    PsdControlTypeView,             // UIView
+    PsdControlTypeLabel,            // UILabel
+    PsdControlTypeButton,           // UIButton
+    PsdControlTypeImageView,        // UIImageView
+    PsdControlTypeCell,             // UITableViewCell
+    PsdControlTypeScrollView,       // UIScrollView
+    PsdControlTypeTextField,        // UITextField
+}PsdControlType;
+
+#pragma mark - 代码块
+typedef void(^BlockWithObject_Psd)(id object);
+typedef void(^BlockWithVoid_Psd)(void);
+typedef void(^BlockWithTwoObject_Psd)(id object, id object1);
+
+
+#pragma mark - 键值
+// 换行key
+static const NSString *KeyLineFeed = @"\r\n";
+
+// UI以375作为标准设计
+static const CGFloat KeyStandardWidth = 375.0;
+
+
+#pragma mark - 快捷创建
+// 弱引用
+#define WeakSelf_Psd                 __weak typeof(self) weakSelf = self;
+// 强引用
+#define StrongSelf_Psd               __strong typeof(self) strongSelf = self;
+// 字符串
+#define IntString_Psd(intValue)                            [NSString stringWithFormat:@"%zd", intValue];
+#define FloatString_Psd(floatValue)                        [NSString stringWithFormat:@"%.1f", floatValue];
+// 创建对象
+#define ObjectCreate_Psd(className,objName,_objName)        ObjectCreateValue_Psd(className,objName,_objName,[[className alloc] init];)
+// 创建对象带值
+#define ObjectCreateValue_Psd(className,objName,_objName,value)\
+- (className *)objName\
+{\
+    if (!_objName) {\
+        _objName = value;\
+    }\
+    return _objName;\
+}
+// 创建数组
+#define ArrayM_Create_Two_Psd(a,_a)\
+- (NSMutableArray *)a\
+{\
+    if (!_a) {\
+        _a = [NSMutableArray array];\
+    }\
+    return _a;\
+}
+
+#pragma mark - 自定义头文件
+#import "PsdStandardRepository.h"
+#import "PsdChildModel.h"
+#import "PsdLayoutModel.h"
+
+#endif /* PrefixHeader_pch */
